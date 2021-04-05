@@ -1,3 +1,6 @@
+#include<memory>
+#include<iostream>
+#include<map>
 #include"vect.h"
 
 
@@ -11,9 +14,9 @@ bool isnum(std::string s){
 }
 
 
-bool is_valid(std::shared_ptr<std::vector<std::string>> v){
+bool is_valid(const std::vector<std::string> v){
     std::string digit = "";
-    for (auto &x : *v){
+    for (auto const &x : v){
         if (isnum(x))
         {
             if(digit != ""){
@@ -69,8 +72,8 @@ bool fill_check(std::vector<std::string> s1, std::vector<std::string> s2){
             }
         }
     }
-    for(auto & item: dict){
-        if (!is_valid(item.second)) return false;
+    for(const auto & item: dict){
+        if (!is_valid(*item.second)) return false;
     }
     return true;
 }

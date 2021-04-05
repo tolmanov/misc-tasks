@@ -14,9 +14,9 @@ TEST (FillCheckTest, assertFalse) {
 }
 
 TEST (ValidTest, assertTrue){
-    auto inp = std::make_shared<std::vector<std::string>>();
-    inp->push_back("x");
-    inp->push_back("y");
-    inp->push_back("1");
+    auto inp = std::vector<std::string>();
+    inp.push_back("x");
+    inp.push_back("y");
+    inp.push_back("1");
     EXPECT_EQ (true, is_valid(inp));
 }
